@@ -1,0 +1,10 @@
+Bundle-Name: tanger-med-core-api
+Bundle-SymbolicName: tanger.med.core.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	tanger.med.core.exception,\
+	tanger.med.core.model,\
+	tanger.med.core.service,\
+	tanger.med.core.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../tanger-med-core-service/service.xml

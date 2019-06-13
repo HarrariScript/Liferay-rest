@@ -1,0 +1,20 @@
+dependencies {
+	 compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+	 
+	compileOnly group: "javax.ws.rs", name: "javax.ws.rs-api"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+	compileOnly group: "org.osgi", name: "org.osgi.service.jaxrs", version: "1.0.0"
+	compileOnly group: 'com.liferay', name: 'com.liferay.oauth2.provider.scope.api'
+	compileInclude group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: "2.9.8"
+	compileOnly project(":modules:tanger-med-core:tanger-med-core-api")
+	
+		compileOnly group: 'org.apache.cxf', name: 'cxf-rt-rs-extension-providers', version: '3.2.0'
+	compileOnly group: "org.apache.cxf", name: "cxf-core", version: "3.2.0"
+	
+		compileOnly group: "javax.servlet", name: "javax.servlet-api"
+		compileOnly group: "javax.portlet", name: "portlet-api"
+	
+	
+}
+
+

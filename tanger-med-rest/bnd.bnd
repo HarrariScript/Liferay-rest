@@ -1,0 +1,4 @@
+Bundle-Name: tanger-med-rest
+Bundle-SymbolicName: tanger.med.rest
+Bundle-Version: 1.0.0
+Liferay-Configuration-Path: /configuration
