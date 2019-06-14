@@ -83,8 +83,71 @@ public class TMessageServiceHttp {
 		}
 	}
 
+	public static tanger.med.core.model.TMessage addTMessage(
+		HttpPrincipal httpPrincipal, String title, String content,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		try {
+			MethodKey methodKey = new MethodKey(TMessageServiceUtil.class,
+					"addTMessage", _addTMessageParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, title,
+					content, serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception e) {
+				throw new com.liferay.portal.kernel.exception.SystemException(e);
+			}
+
+			return (tanger.med.core.model.TMessage)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException se) {
+			_log.error(se, se);
+
+			throw se;
+		}
+	}
+
+	public static tanger.med.core.model.TMessage getMessage(
+		HttpPrincipal httpPrincipal,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		try {
+			MethodKey methodKey = new MethodKey(TMessageServiceUtil.class,
+					"getMessage", _getMessageParameterTypes2);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey,
+					serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception e) {
+				throw new com.liferay.portal.kernel.exception.SystemException(e);
+			}
+
+			return (tanger.med.core.model.TMessage)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException se) {
+			_log.error(se, se);
+
+			throw se;
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(TMessageServiceHttp.class);
 	private static final Class<?>[] _getAllTMessageParameterTypes0 = new Class[] {
+			com.liferay.portal.kernel.service.ServiceContext.class
+		};
+	private static final Class<?>[] _addTMessageParameterTypes1 = new Class[] {
+			String.class, String.class,
+			com.liferay.portal.kernel.service.ServiceContext.class
+		};
+	private static final Class<?>[] _getMessageParameterTypes2 = new Class[] {
 			com.liferay.portal.kernel.service.ServiceContext.class
 		};
 }

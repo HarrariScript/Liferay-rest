@@ -47,7 +47,11 @@ public class TMessageServiceImpl extends TMessageServiceBaseImpl {
 		_log.info("done ");
 		 return tMessageLocalService.getTMessages(0, 10);
 	}
-	public TMessage addTMessage(TMessage tMessage , ServiceContext serviceContext ) {
-		 return tMessageLocalService.addTMessage(tMessage);
+	public TMessage addTMessage(String title , String content  , ServiceContext serviceContext ) {
+		 
+		 return tMessageLocalService.addTMessage(title, content, serviceContext);
+	}
+	public TMessage getMessage(ServiceContext serviceContext ) {
+		 return null ;
 	}
 }

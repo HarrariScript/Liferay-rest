@@ -33,9 +33,22 @@ public class TMessageServiceWrapper implements TMessageService,
 	}
 
 	@Override
+	public tanger.med.core.model.TMessage addTMessage(String title,
+		String content,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return _tMessageService.addTMessage(title, content, serviceContext);
+	}
+
+	@Override
 	public java.util.List<tanger.med.core.model.TMessage> getAllTMessage(
 		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
 		return _tMessageService.getAllTMessage(serviceContext);
+	}
+
+	@Override
+	public tanger.med.core.model.TMessage getMessage(
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return _tMessageService.getMessage(serviceContext);
 	}
 
 	/**

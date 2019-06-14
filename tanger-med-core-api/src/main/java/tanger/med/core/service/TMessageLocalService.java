@@ -30,6 +30,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -63,6 +64,8 @@ public interface TMessageLocalService extends BaseLocalService,
 	 *
 	 * Never modify or reference this interface directly. Always use {@link TMessageLocalServiceUtil} to access the t message local service. Add custom service methods to {@link tanger.med.core.service.impl.TMessageLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public TMessage addTMessage(String title, String content,
+		ServiceContext serviceContext);
 
 	/**
 	* Adds the t message to the database. Also notifies the appropriate model listeners.

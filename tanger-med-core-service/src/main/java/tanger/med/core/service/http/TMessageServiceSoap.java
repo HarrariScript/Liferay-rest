@@ -80,5 +80,37 @@ public class TMessageServiceSoap {
 		}
 	}
 
+	public static tanger.med.core.model.TMessageSoap addTMessage(String title,
+		String content,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+		try {
+			tanger.med.core.model.TMessage returnValue = TMessageServiceUtil.addTMessage(title,
+					content, serviceContext);
+
+			return tanger.med.core.model.TMessageSoap.toSoapModel(returnValue);
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+
+			throw new RemoteException(e.getMessage());
+		}
+	}
+
+	public static tanger.med.core.model.TMessageSoap getMessage(
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws RemoteException {
+		try {
+			tanger.med.core.model.TMessage returnValue = TMessageServiceUtil.getMessage(serviceContext);
+
+			return tanger.med.core.model.TMessageSoap.toSoapModel(returnValue);
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+
+			throw new RemoteException(e.getMessage());
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(TMessageServiceSoap.class);
 }

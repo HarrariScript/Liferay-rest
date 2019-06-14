@@ -33,6 +33,13 @@ public class TMessageLocalServiceWrapper implements TMessageLocalService,
 		_tMessageLocalService = tMessageLocalService;
 	}
 
+	@Override
+	public tanger.med.core.model.TMessage addTMessage(String title,
+		String content,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return _tMessageLocalService.addTMessage(title, content, serviceContext);
+	}
+
 	/**
 	* Adds the t message to the database. Also notifies the appropriate model listeners.
 	*

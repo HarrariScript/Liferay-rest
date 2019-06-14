@@ -42,6 +42,11 @@ public class TMessageLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to {@link tanger.med.core.service.impl.TMessageLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static tanger.med.core.model.TMessage addTMessage(String title,
+		String content,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return getService().addTMessage(title, content, serviceContext);
+	}
 
 	/**
 	* Adds the t message to the database. Also notifies the appropriate model listeners.

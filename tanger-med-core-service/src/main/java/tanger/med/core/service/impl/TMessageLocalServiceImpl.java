@@ -14,6 +14,9 @@
 
 package tanger.med.core.service.impl;
 
+import com.liferay.portal.kernel.service.ServiceContext;
+
+import tanger.med.core.model.TMessage;
 import tanger.med.core.service.base.TMessageLocalServiceBaseImpl;
 
 /**
@@ -36,5 +39,15 @@ public class TMessageLocalServiceImpl extends TMessageLocalServiceBaseImpl {
 	 *
 	 * Never reference this class directly. Always use {@link tanger.med.core.service.TMessageLocalServiceUtil} to access the t message local service.
 	 */
-	
+	public TMessage addTMessage(String title , String content , ServiceContext serviceContext ) {
+		 
+		TMessage tMessage = tMessageLocalService.createTMessage(counterLocalService.increment(TMessage.class.getName()));
+		
+		tMessage.setTitle(title);
+		tMessage.setContent(content);
+		
+		
+		return this.addTMessage(tMessage);
+		
+	}
 }

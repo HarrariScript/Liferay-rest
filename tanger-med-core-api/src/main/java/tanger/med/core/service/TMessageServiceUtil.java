@@ -42,9 +42,20 @@ public class TMessageServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to {@link tanger.med.core.service.impl.TMessageServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static tanger.med.core.model.TMessage addTMessage(String title,
+		String content,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return getService().addTMessage(title, content, serviceContext);
+	}
+
 	public static java.util.List<tanger.med.core.model.TMessage> getAllTMessage(
 		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
 		return getService().getAllTMessage(serviceContext);
+	}
+
+	public static tanger.med.core.model.TMessage getMessage(
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return getService().getMessage(serviceContext);
 	}
 
 	/**

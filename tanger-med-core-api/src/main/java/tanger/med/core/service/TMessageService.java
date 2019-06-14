@@ -55,8 +55,14 @@ public interface TMessageService extends BaseService {
 	 *
 	 * Never modify or reference this interface directly. Always use {@link TMessageServiceUtil} to access the t message remote service. Add custom service methods to {@link tanger.med.core.service.impl.TMessageServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public TMessage addTMessage(String title, String content,
+		ServiceContext serviceContext);
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<TMessage> getAllTMessage(ServiceContext serviceContext);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public TMessage getMessage(ServiceContext serviceContext);
 
 	/**
 	* Returns the OSGi service identifier.
