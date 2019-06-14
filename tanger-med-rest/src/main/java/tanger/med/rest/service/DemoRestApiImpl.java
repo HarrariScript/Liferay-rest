@@ -5,6 +5,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
@@ -23,8 +24,13 @@ public class DemoRestApiImpl implements DemoRestApi{
 	
 	@RequiresNoScope
 	@Override
-	public List<TMessage> working(ServiceContext serviceContext ) {
-		return _tMessageService.getAllTMessage(serviceContext);
+	public List<TMessageModel> working(ServiceContext serviceContext ) {
+		List<TMessage> tMessageList = _tMessageService.getAllTMessage(serviceContext);
+		List<TMessageModel> tMessageModelList = new ArrayList<TMessageModel>();
+		for(TMessage tMessage : tMessageList) {
+			tMessageModelList.add(_tMessageModelMapperService.fromTMessage(tMessage));
+		}
+		return tMessageModelList;
 	}
 	
 	@Reference 
