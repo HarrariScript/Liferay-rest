@@ -22,8 +22,8 @@ import tanger.med.rest.provider.ServiceContextProvider;
 	property = {
 		JaxrsWhiteboardConstants.JAX_RS_APPLICATION_BASE + "=/tangerMed",
 		JaxrsWhiteboardConstants.JAX_RS_NAME + "=tangerMed.Rest",
-		"liferay.auth.verifier=false", 
-		"liferay.oauth2=false", 
+		"liferay.auth.verifier=true", 
+		"liferay.oauth2=true", 
 		"auth.verifier.guest.allowed=true",
 		"auth.verifier.auth.verifier.OAuth2RestAuthVerifier.urls.includes=*",
 		"auth.verifier.auth.verifier.PortalSessionAuthVerifier.urls.includes=*",
@@ -32,6 +32,8 @@ import tanger.med.rest.provider.ServiceContextProvider;
 	service = Application.class
 )
 public class TangerMedRestApplication extends Application {
+	
+	
 
 	public Set<Object> getSingletons() {
 		Set<Object> singletons = new HashSet<>();

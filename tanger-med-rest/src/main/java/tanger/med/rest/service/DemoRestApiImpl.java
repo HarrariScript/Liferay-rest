@@ -1,6 +1,7 @@
 package tanger.med.rest.service;
 
 import com.liferay.oauth2.provider.scope.RequiresNoScope;
+import com.liferay.oauth2.provider.scope.RequiresScope;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -22,7 +23,7 @@ import tanger.med.rest.api.model.mapper.*;
 public class DemoRestApiImpl implements DemoRestApi{
 	Log _log = LogFactoryUtil.getLog(DemoRestApiImpl.class);
 	
-	@RequiresNoScope
+	@RequiresScope("tangermed.read")
 	@Override
 	public List<TMessageModel> working(ServiceContext serviceContext ) {
 		List<TMessage> tMessageList = _tMessageService.getAllTMessage(serviceContext);
@@ -38,7 +39,7 @@ public class DemoRestApiImpl implements DemoRestApi{
 	
 	@Reference
 	TMessageModelMapperService _tMessageModelMapperService;
-
+	@RequiresScope("tangermed.admin")
 	@Override
 	public TMessageModel addTMessage(String title, String content, ServiceContext serviceContext) {
 		_log.info(title);
