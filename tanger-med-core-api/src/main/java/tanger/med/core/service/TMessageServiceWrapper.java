@@ -35,7 +35,9 @@ public class TMessageServiceWrapper implements TMessageService,
 	@Override
 	public tanger.med.core.model.TMessage addTMessage(String title,
 		String content,
-		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.security.auth.PrincipalException,
+			com.liferay.portal.kernel.exception.PortalException {
 		return _tMessageService.addTMessage(title, content, serviceContext);
 	}
 

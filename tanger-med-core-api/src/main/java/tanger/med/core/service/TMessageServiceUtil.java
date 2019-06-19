@@ -44,7 +44,9 @@ public class TMessageServiceUtil {
 	 */
 	public static tanger.med.core.model.TMessage addTMessage(String title,
 		String content,
-		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.security.auth.PrincipalException,
+			com.liferay.portal.kernel.exception.PortalException {
 		return getService().addTMessage(title, content, serviceContext);
 	}
 

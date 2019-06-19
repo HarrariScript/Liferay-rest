@@ -1,6 +1,5 @@
 package tanger.med.rest.service;
 
-import com.liferay.oauth2.provider.scope.RequiresNoScope;
 import com.liferay.oauth2.provider.scope.RequiresScope;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -44,8 +43,13 @@ public class DemoRestApiImpl implements DemoRestApi{
 	public TMessageModel addTMessage(String title, String content, ServiceContext serviceContext) {
 		_log.info(title);
 		_log.info(content);
-		return  _tMessageModelMapperService.fromTMessage(_tMessageService.addTMessage(title , content , serviceContext));
-		
+		try {
+			return  _tMessageModelMapperService.fromTMessage(_tMessageService.addTMessage(title , content , serviceContext));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null ;
 		
 	}
 	

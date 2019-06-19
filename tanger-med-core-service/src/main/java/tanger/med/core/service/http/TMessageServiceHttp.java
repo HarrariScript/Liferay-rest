@@ -85,7 +85,9 @@ public class TMessageServiceHttp {
 
 	public static tanger.med.core.model.TMessage addTMessage(
 		HttpPrincipal httpPrincipal, String title, String content,
-		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.security.auth.PrincipalException,
+			com.liferay.portal.kernel.exception.PortalException {
 		try {
 			MethodKey methodKey = new MethodKey(TMessageServiceUtil.class,
 					"addTMessage", _addTMessageParameterTypes1);
@@ -99,6 +101,14 @@ public class TMessageServiceHttp {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
 			}
 			catch (Exception e) {
+				if (e instanceof com.liferay.portal.kernel.security.auth.PrincipalException) {
+					throw (com.liferay.portal.kernel.security.auth.PrincipalException)e;
+				}
+
+				if (e instanceof com.liferay.portal.kernel.exception.PortalException) {
+					throw (com.liferay.portal.kernel.exception.PortalException)e;
+				}
+
 				throw new com.liferay.portal.kernel.exception.SystemException(e);
 			}
 

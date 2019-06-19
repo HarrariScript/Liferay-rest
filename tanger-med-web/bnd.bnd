@@ -1,0 +1,4 @@
+Bundle-Name: tanger-med-web
+Bundle-SymbolicName: tanger.med.web
+Bundle-Version: 1.0.0
+Export-Package: tanger.med.web.constants

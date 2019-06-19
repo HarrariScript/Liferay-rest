@@ -13,14 +13,18 @@
  */
 
 package tanger.med.core.service.impl;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.spring.extender.service.ServiceReference;
 
 import java.util.List;
 
 import tanger.med.core.model.TMessage;
 import tanger.med.core.service.base.TMessageServiceBaseImpl;
+import tanger.med.core.service.permission.TMessagePermission;
 
 /**
  * The implementation of the t message remote service.
@@ -47,11 +51,19 @@ public class TMessageServiceImpl extends TMessageServiceBaseImpl {
 		_log.info("done ");
 		 return tMessageLocalService.getTMessages(0, 10);
 	}
-	public TMessage addTMessage(String title , String content  , ServiceContext serviceContext ) {
-		 
+	public TMessage addTMessage(String title , String content  , ServiceContext serviceContext ) throws PrincipalException, PortalException {
+		
+		if(!_tMessagePermission.hasAddPermission(getPermissionChecker(), serviceContext.getUserId())) {
+			throw new PrincipalException("user-has-no-permission-to-add-tMessage");
+		 }
 		 return tMessageLocalService.addTMessage(title, content, serviceContext);
 	}
 	public TMessage getMessage(ServiceContext serviceContext ) {
 		 return null ;
 	}
+	
+	@ServiceReference(type = TMessagePermission.class)
+	TMessagePermission _tMessagePermission; 
+	
+	
 }

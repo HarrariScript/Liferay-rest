@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.service.BaseService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
@@ -56,7 +57,8 @@ public interface TMessageService extends BaseService {
 	 * Never modify or reference this interface directly. Always use {@link TMessageServiceUtil} to access the t message remote service. Add custom service methods to {@link tanger.med.core.service.impl.TMessageServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
 	public TMessage addTMessage(String title, String content,
-		ServiceContext serviceContext);
+		ServiceContext serviceContext)
+		throws PrincipalException, PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<TMessage> getAllTMessage(ServiceContext serviceContext);
